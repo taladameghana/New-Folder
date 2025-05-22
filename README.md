@@ -1,4 +1,1046 @@
 # New-Folder
+Module 1-Bootstrap 5
+1. Setting Up Bootstrap 5
+Exercise 1.1:
+Create a basic HTML page and link Bootstrap 5 via CDN.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 5 CDN Example</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="text-primary">Hello, Bootstrap 5!</h1>
+    <p>This is a simple example using Bootstrap 5 via CDN.</p>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+Exercise 1.2:
+Set up a project using npm or downloaded Bootstrap files. Use the downloaded files in a sample
+HTML page.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 5 Local Example</title>
+  <!-- Bootstrap 5 CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="text-success">Hello, Bootstrap 5!</h1>
+    <p>This is a simple example using Bootstrap 5 locally.</p>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+2. Bootstrap Structure and Files
+Exercise 2.1:
+Explore the structure of the downloaded Bootstrap directory. Identify and explain the purpose of
+the CSS, JS, and icons folders.
+bootstrap/
+├── css/
+│   ├── bootstrap.css
+│   ├── bootstrap.min.css
+│   └── ...
+├── js/
+│   ├── bootstrap.bundle.js
+│   ├── bootstrap.bundle.min.js
+│   └── ...
+└── icons/
+    ├── bootstrap-icons.css
+    └── ...
+
+Exercise 2.2:
+Modify your HTML to include Bootstrap's JavaScript plugins via bootstrap.bundle.min.js.
+<head>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+  <!-- Your content here -->
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+3. Fundamentals of Responsive Grid Layout
+Exercise 3.1:
+Create a container with three columns that stack vertically on mobile, two-per-row on tablets,
+and three-per-row on desktops.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Responsive Grid Example</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <div class="p-3 border bg-light text-center">Column 1</div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <div class="p-3 border bg-light text-center">Column 2</div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <div class="p-3 border bg-light text-center">Column 3</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+Exercise 3.2:
+Use .container, .row, and .col-* classes appropriately for responsive design.
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-4">
+      <!-- Content for Column 1 -->
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+      <!-- Content for Column 2 -->
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+      <!-- Content for Column 3 -->
+    </div>
+  </div>
+</div>
+4. Column Layouts and Grid Classes
+Exercise 4.1:
+Design a two-column layout with a sidebar (col-md-3) and content area (col-md-9).
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Two-Column Layout</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-4">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-md-3 bg-light border p-3">
+        <h4>Sidebar</h4>
+        <p>Sidebar content goes here.</p>
+      </div>
+      <!-- Main Content -->
+      <div class="col-md-9 bg-white border p-3">
+        <h4>Main Content</h4>
+        <p>Main content goes here.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+Exercise 4.2:
+Create a four-column layout (col-sm-3) with equal width.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Four-Column Layout</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-sm-3 bg-light border p-3 text-center">Column 1</div>
+      <div class="col-sm-3 bg-light border p-3 text-center">Column 2</div>
+      <div class="col-sm-3 bg-light border p-3 text-center">Column 3</div>
+      <div class="col-sm-3 bg-light border p-3 text-center">Column 4</div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+5. Alignment and Reordering in Grid
+Exercise 5.1:
+Use justify-content-center and align-items-center to center content inside a row.
+<div class="container" style="height: 300px;">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-6 text-center">
+      <div class="p-4 bg-light border">
+        <p>This content is centered both horizontally and vertically.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+Exercise 5.2:
+Reorder columns on different screen sizes using order-md-2, order-md-1.
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 order-md-2 bg-light p-3">
+      <h5>Second Column (appears first on small screens)</h5>
+      <p>Content for the second column.</p>
+    </div>
+    <div class="col-md-6 order-md-1 bg-white p-3">
+      <h5>First Column (appears second on small screens)</h5>
+      <p>Content for the first column.</p>
+    </div>
+  </div>
+</div>
+6. Responsive Flexbox Utilities
+Exercise 7.1:
+Create a navbar using d-flex, flex-column, and flex-md-row for responsive behavior.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Responsive Navbar</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar bg-light">
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
+      <a class="navbar-brand mb-2 mb-md-0" href="#">Brand</a>
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+      </ul>
+    </div>
+  </nav:contentReference[oaicite:5]{index=5}
+
+Exercise 7.2:
+Use justify-content-between and align-items-center in a card layout.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Card Layout</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-4">
+    <div class="card p-3">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <h5 class="card-title mb-0">Card Title</h5>
+          <small class="text-muted">Subtitle</small>
+        </div>
+        <button class="btn btn-primary">Action</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+7. Typography
+Exercise 7.1:
+Create a sample page with different Bootstrap typography utilities: display-1, lead, text-muted,
+fw-bold, etc.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bootstrap Typography Example</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="p-4">
+
+  <h1 class="display-1">Display 1 Heading</h1>
+  <p class="lead">This is a lead paragraph. It stands out from regular paragraphs.</p>
+  <p class="text-muted">This text is muted, making it less prominent.</p>
+  <p class="fw-bold">This text is bold using the <code>.fw-bold</code> class.</p>
+  <p class="fst-italic">This text is italicized using the <code>.fst-italic</code> class.</p>
+  <p class="text-decoration-underline">This text is underlined using the <code>.text-decoration-underline</code> class.<
+
+Exercise 7.2:
+Use text-uppercase, text-lowercase, text-capitalize.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bootstrap Text Transform Example</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="p-4">
+
+  <p class="text-uppercase">this text is transformed to uppercase.</p>
+  <p class="text-lowercase">THIS TEXT IS TRANSFORMED TO LOWERCASE.</p>
+  <p class="text-capitalize">this text is transformed to capitalized form.</p>
+
+</body>
+</html>
+8. Forms
+Exercise 8.1:
+Create a registration form using Bootstrap form components like form-control, form-check, and
+input-group.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bootstrap Registration Form</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="p-4">
+
+  <div class="container">
+    <h2 class="mb-4">Register</h2>
+    <form>
+      <div class="mb-3">
+        <label for="fullName" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="fullName" placeholder="Enter your full name">
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <div class="input-group">
+          <span class="input-group-text">@</span>
+          <input type="email" class="form-control" id="email" placeholder="Enter your email">
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Enter your password">
+      </div>
+
+      <div class="mb-3 form-check">
+        <input t
+
+Exercise 8.2:
+Style a login form using form-floating
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bootstrap Login Form</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="p-4">
+
+  <div class="container">
+    <h2 class="mb-4">Login</h2>
+    <form>
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="loginEmail" placeholder="name@example.com">
+        <label for="loginEmail">Email address</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="loginPassword" placeholder="Password">
+        <label for="loginPassword">Password</label>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+  </div>
+
+</body>
+</html>
+9. Buttons
+Exercise 9.1:
+Create buttons using all contextual classes: btn-primary, btn-secondary, btn-outline-*, etc.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bootstrap Buttons Example</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="p-4">
+
+  <h2>Solid Buttons</h2>
+  <button type="button" class="btn btn-primary">Primary</button>
+  <button type="button" class="btn btn-secondary">Secondary</button>
+  <button type="button" class="btn btn-success">Success</button>
+  <button type="button" class="btn btn-danger">Danger</button>
+  <button type="button" class="btn btn-warning">Warning</button>
+  <button type="button" class="btn btn-info">Info</button>
+  <button type="button" class="btn btn-light">Light</button>
+  <button type="button" class="btn btn-dark">Dark</button>
+  <button type="button" class="btn btn-link">Link</button>
+
+  <h2 class="mt-4">Outline Buttons</h2>
+  <button type="button" class="btn btn-outline-primary">Primary</button>
+  <button type="button" class="btn btn-outline-secondary">Secondary</button>
+  <button type="button" class="btn btn-outline-success">Success</button>
+  <button type="button" class="btn btn-outline-danger">Danger
+
+Exercise 9.2:
+Add button groups using btn-group, and create toggle buttons with checkboxes
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bootstrap Button Groups</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="p-4">
+
+  <h2>Button Group</h2>
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-primary">Left</button>
+    <button type="button" class="btn btn-primary">Middle</button>
+    <button type="button" class="btn btn-primary">Right</button>
+  </div>
+
+  <h2 class="mt-4">Checkbox Toggle Buttons</h2>
+  <div class="btn-group" role="group" aria-label="Checkbox toggle button group">
+    <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+    <label class="btn btn-outline-primary" for="btncheck1">Checkbox 1</label>
+
+    <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+    <label class="btn btn-outline-primary" for="btncheck2">Checkbox 2</label>
+
+    <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+    <label class="btn btn-outline-primary" for="btncheck3">Checkbox 3</label>
+  </div>
+
+</body>
+</html>
+10. Navbars and Navigation
+Exercise 10.1:
+Create a responsive navbar with logo, navigation links, and a search form.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive Navbar</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Logo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button
+
+Exercise 10.2:
+Use nav, nav-tabs, nav-pills for creating tabbed navigation.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tabbed Navigation</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Nav Tabs -->
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">Home content...</div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Profile content...</div>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">Contact content...</div>
+  </div>
+
+  <!-- Nav Pills -->
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">Home content...</div>
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">Profile content...</div>
+    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">Contact content...</div>
+  </div>
+
+  <!-- Bootstrap JS and Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+11. Cards and Media Objects
+Exercise 11.1:
+Create a profile card using card, card-body, card-title, and card-img-top.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile Card</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="p-4">
+
+  <div class="card" style="width: 18rem;">
+    <img src="https://randomuser.me/api/portraits/men/14.jpg" class="card-img-top" alt="John Doe">
+    <div class="card-body">
+      <h5 class="card-title">John Doe</h5>
+      <p class="card-text">Creative Designer passionate about crafting user-centric digital experiences.</p>
+      <a href="#" class="btn btn-primary">Connect</a>
+    </div>
+  </div>
+
+</body>
+</html>
+
+Exercise 11.2:
+Design a media object layout using media and align an image to the left of the content.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Media Object</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="p-4">
+
+  <div class="d-flex">
+    <img src="https://randomuser.me/api/portraits/men/14.jpg" class="me-3 rounded-circle" alt="John Doe" style="width: 60px; height: 60px;">
+    <div>
+      <h5 class="fw-bold">John Doe</h5>
+      <p class="mb-1">Creative Designer passionate about crafting user-centric digital experiences.</p>
+      <small class="text-muted">Posted on February 19, 2021</small>
+    </div>
+  </div>
+
+</body>
+</html>
+12. Spacing Utilities
+Exercise 12.1:
+Apply margin (m-3, mt-4) and padding (p-2, py-5) utilities on layout sections.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Spacing Utilities Example</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container mt-4">
+    <section class="bg-light p-3 mb-4">
+      <h2 class="mb-3">Section 1</h2>
+      <p>This section has padding and margin applied using Bootstrap's spacing utilities.</p>
+    </section>
+
+    <section class="bg-secondary text-white p-2 py-5">
+      <h2 class="mb-3">Section 2</h2>
+      <p>Notice the larger vertical padding applied here.</p>
+    </section>
+  </div>
+
+</body>
+</html>
+
+Exercise 12.2:
+Build a pricing section where spacing improves the layout.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pricing Section</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container py-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Free</h5>
+            <p class="card-text">$0/month</p>
+            <ul class="list-unstyled">
+              <li>10 users included</li>
+              <li>2 GB of storage</li>
+              <li>Email support</li>
+            </ul>
+            <a href="#" class="btn btn-primary">Sign up</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Pro</h5>
+            <p class="card-text">$15/month</p>
+            <ul class="list-unstyled">
+              <li>20 users included</li>
+              <li>10 GB of storage</li>
+              <li>Priority email support</li>
+            </ul>
+            <a href="#" class="btn btn-primary">Get started</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Enterprise</h5>
+            <p class="card-text">$29/month</p>
+            <ul class="list-unstyled">
+              <li>30 users included</li>
+              <li>15 GB of storage</li>
+              <li>Phone and email support</li>
+            </ul>
+            <a href="#" class="btn btn-primary">Contact us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+13. Colors and Backgrounds
+Exercise 13.1:
+Create a dashboard page using contextual background classes (bg-primary, bg-warning, etc.) and
+text colors.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="p-4 mb-3 bg-primary text-white rounded">
+          <h5>Sales</h5>
+          <p>Monthly sales data and trends.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="p-4 mb-3 bg-warning text-dark rounded">
+          <h5>Alerts</h5>
+          <p>Recent system alerts and notifications.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="p-4 mb-3 bg-info text-white rounded">
+          <h5>Updates</h5>
+          <p>Latest updates and news.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+
+Exercise 13.2:
+Use bg-gradient with bg-dark and white text.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gradient Background</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container mt-4">
+    <div class="p-5 bg-dark bg-gradient text-white rounded">
+      <h2>Welcome to the Dashboard</h2>
+      <p>Your personalized overview of the system's performance.</p>
+    </div>
+  </div>
+
+</body>
+</html>
+14. Display and Visibility
+Exercise 14.1:
+Use d-none, d-md-block, d-lg-flex to hide/show sections based on screen size.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive Display</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="d-none d-md-block p-3 mb-3 bg-primary text-white">
+          Visible on medium screens and larger
+        </div>
+        <div class="d-none d-lg-flex p-3 mb-3 bg-success text-white">
+          Visible on large screens and larger
+        </div>
+        <div class="d-block d-md-none p-3 mb-3 bg-danger text-white">
+          Visible on small screens only
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+
+Exercise 14.2:
+Create a responsive sidebar that only shows on tablets and above.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive Sidebar</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <nav class="col-md-3 col-lg-2 d-none d-md-block bg-light sidebar">
+        <div class="position-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">
+                Dashboard
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                Orders
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                Products
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Main content -->
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-4">
+        <h2>Main Content</h2>
+        <p>This is the main content area.</p>
+      </main>
+    </div>
+  </div>
+
+</body>
+</html>
+15. Borders, Shadows, and Rounded Corners
+Exercise 15.1:
+Add border utilities like border, border-primary, border-3, and rounded-circle to an image.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Styled Image</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light text-center p-4">
+
+  <img src="https://via.placeholder.com/150" class="border border-primary border-3 rounded-circle" alt="Styled Image">
+
+</body>
+</html>
+
+Exercise 15.2:
+Use shadow, shadow-lg and rounded-pill in a card.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Card with Shadow</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light p-4">
+
+  <div class="card shadow-lg rounded-pill" style="width: 18rem;">
+    <img src="https://via.placeholder.com/150" class="card-img-top rounded-top" alt="Card image">
+    <div class="card-body">
+      <h5 class="card-title">Card Title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+
+</body>
+</html>
+16. Positioning Utilities
+Exercise 16.1:
+Create a fixed footer using position-fixed bottom-0.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fixed Footer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="min-vh-100 d-flex flex-column">
+
+  <div class="container my-auto">
+    <h1 class="text-center">Main Content</h1>
+    <p class="text-center">Add your content here.</p>
+  </div>
+
+  <footer class="position-fixed bottom-0 start-0 end-0 bg-dark text-white text-center py-2">
+    <p class="mb-0">© 2025 Your Company</p>:contentReference[oaicite:13]{index=13}:contentReference[oaicite:16]{index=16}
+
+Exercise 16.2:
+Use position-relative and position-absolute to overlay a badge over an image
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image with Badge</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="position-relative d-inline-block">
+    <img src="https://via.placeholder.com/300" class="img-fluid" alt="Sample Image">
+    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+      New
+    </span>
+  </div>
+
+</body>
+</html>
+17. Icons with Bootstrap Icons
+Exercise 17.1:
+Install and use Bootstrap Icons in a webpage: add social media icons in the footer.
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<footer class="text-center text-white" style="background-color: #f1f1f1;">
+  <div class="container pt-4">
+    <section class="mb-4">
+      <a href="#" class="btn btn-link btn-floating btn-lg text-dark m-1" role="button">
+        <i class="bi bi-facebook"></i>
+      </a>
+      <a href="#" class="btn btn-link btn-floating btn-lg text-dark m-1" role="button">
+        <i class="bi bi-twitter"></i>
+      </a>
+      <a href="#" class="btn btn-link btn-floating btn-lg text-dark m-1" role="button">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a href="#" class="btn btn-link btn-floating btn-lg text-dark m-1" role="button">
+        <i class="bi bi-linkedin"></i>
+      </a>
+    </section>
+  </div>
+</footer>
+
+Exercise 17.2:
+Replace text buttons with icon-only buttons using Bootstrap Icons.
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<button type="button" class="btn btn-primary">
+  <i class="bi bi-house-door"></i>
+</button>
+<button type="button" class="btn btn-secondary">
+  <i class="bi bi-search"></i>
+</button>
+<button type="button" class="btn btn-danger">
+  <i class="bi bi-trash"></i>
+</button>
+18. Bootstrap 5 JavaScript Plugins
+Exercise 18.1:
+Add a modal popup triggered by a button.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Modal Example</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Button to trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Open Modal
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal Title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          This is a simple modal example.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle:contentReference[oaicite:5]{index=5}
+
+Exercise 18.2:
+Create a collapsible accordion using accordion and Bootstrap JavaScript behavior.
+         <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Accordion Example</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Accordion Item #1
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          This is the first item's accordion body. It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Accordion Item #2
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          This is the second item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Accordion Item #3
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          This is the third item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+19. Customization with Sass
+Exercise 19.1:
+Set up a Bootstrap 5 project with Sass using npm.
+mkdir my-bootstrap-project
+cd my-bootstrap-project
+npm init -y
+npm install bootstrap sass --save-dev
+my-bootstrap-project/
+├── scss/
+│   └── custom.scss
+└── node_modules/
+    └── bootstrap/
+        ├── scss/
+        └── js/
+npx sass scss/custom.scss dist/styles.css
+npm run build-css
+npx sass --watch scss/custom.scss:dist/styles.css
+
+Exercise 19.2:
+Customize primary colors and border radius via _variables.scss and recompile Bootstrap.
+// _variables.scss
+$primary: #ff5733; // Custom primary color
+$border-radius: 0.375rem; // Custom border radius
+// custom.scss
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+
+
+
+
+
 Module 2 - ANSI SQL Using MySQL Exercises
 Database Schema
 1. User Upcoming Events
