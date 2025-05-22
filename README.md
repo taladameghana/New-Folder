@@ -2013,6 +2013,622 @@ Use Conditional Breakpoints: Right-click a breakpoint and select "Edit breakpoin
 Monitor Network Requests: Use the Network panel to view API calls and responses, ensuring data is fetched correctly.
 
 Check for Layout Shifts: Utilize the Performance panel to record and analyze layout shifts and rendering issues
+Module 1 - Java Script
+JavaScript Exercises
+Project Theme: "Local Community Event Portal"
+Users can view upcoming events, register, filter events by category or location, and interact
+dynamically with the portal.
+1. JavaScript Basics & Setup
+Scenario: Set up your community portal to use JavaScript.
+Objective: Configure environment and test basic script functionality.
+Task:
+• Use <script src="main.js"></script> in HTML
+• Log "Welcome to the Community Portal" using console.log()
+• Use an alert to notify when the page is fully loaded
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Event Portal</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Section -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Section -->
+    <main>
+        <h1>Welcome to the Community Event Portal</h1>
+        <p>Discover and register for upcoming events in your community.</p>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Community Event Portal</p>
+    </footer>
+
+    <!-- Link to external JavaScript file -->
+    <script src="main.js"></script>
+</body>
+</html>
+2. Create the JavaScript File// Log a welcome message to the console
+console.log("Welcome to the Community Portal");
+
+// Alert the user when the page is fully loaded
+window.onload = function() {
+    alert("Page is fully loaded!");
+};
+2. Syntax, Data Types, and Operators
+Scenario: Store event details like name, date, and available seats.
+Objective: Use proper data types and operations.
+Task:
+• Use const for event name and date, let for seats
+• Concatenate event info using template literals
+• Use ++ or -- to manage seat count on registration
+// Event details
+const eventName = "Community Cleanup";
+const eventDate = "2025-06-15";
+let availableSeats = 50;
+
+// Display event information
+console.log(`Event: ${eventName}`);
+console.log(`Date: ${eventDate}`);
+console.log(`Seats Available: ${availableSeats}`);
+
+// Simulate a registration
+availableSeats--; // Decrease seat count by 1
+console.log(`Seats Available after registration: ${availableSeats}`);
+3. Conditionals, Loops, and Error Handling
+Scenario: Only show valid events and limit registrations.
+Objective: Apply conditions and handle invalid data.
+User Story: As a user, I want only upcoming events with seats to be displayed.
+Task:
+• Use if-else to hide past or full events
+• Loop through the event list and display using forEach()
+• Wrap registration logic in try-catch to handle errors
+// Sample events data
+const events = [
+  { id: 1, name: "Community Yoga", date: "2025-06-15", seatsAvailable: 20 },
+  { id: 2, name: "Art Workshop", date: "2025-05-10", seatsAvailable: 0 },
+  { id: 3, name: "Cooking Class", date: "2025-07-20", seatsAvailable: 5 },
+  { id: 4, name: "Music Concert", date: "2025-04-25", seatsAvailable: 15 }
+];
+
+// Function to check if an event is upcoming
+function isUpcoming(eventDate) {
+  const today = new Date();
+  const eventDateObj = new Date(eventDate);
+  return eventDateObj >= today;
+}
+
+// Function to register for an event
+function registerForEvent(eventId) {
+  try {
+    const event = events.find(e => e.id === eventId);
+    if (!event) throw new Error("Event not found.");
+    if (!isUpcoming(event.date)) throw new Error("Event has already passed.");
+    if (event.seatsAvailable <= 0) throw new Error("No seats available.");
+
+    // Proceed with registration
+    event.seatsAvailable--;
+    console.log(`Successfully registered for ${event.name}. Remaining seats: ${event.seatsAvailable}`);
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+// Display upcoming events with available seats
+events.forEach(event => {
+  if (isUpcoming(event.date) && event.seatsAvailable > 0) {
+    console.log(`${event.name} - Date: ${event.date} - Seats Available: ${event.seatsAvailable}`);
+  }
+});
+
+// Example usage
+registerForEvent(1); // Attempt to register for the first event
+4. Functions, Scope, Closures, Higher-Order Functions
+Scenario: Create reusable functions for event operations.
+Objective: Encapsulate logic and use closures.
+Task:
+• Create addEvent(), registerUser(), filterEventsByCategory()
+• Use closure to track total registrations for a category
+• Pass callbacks to filter functions for dynamic search
+function createEventCounter() {
+  let count = 0;
+  return function() {
+    count++;
+    console.log(`Event registrations: ${count}`);
+  };
+}
+
+const registerEvent = createEventCounter();
+registerEvent(); // Output: Event registrations: 1
+registerEvent(); // Output: Event registrations: 2
+5. Objects and Prototypes
+Scenario: Each event is an object with properties and methods.
+Objective: Model real-world entities using objects.
+Task:
+• Define Event constructor or class
+• Add checkAvailability() to prototype
+• List object keys and values using Object.entries()
+function Event(name, date, seats) {
+  this.name = name;
+  this.date = new Date(date);
+  this.seats = seats;
+}
+
+// Adding a method to the prototype
+Event.prototype.checkAvailability = function() {
+  return this.seats > 0 ? 'Seats available' : 'Sold out';
+};
+class Event {
+  constructor(name, date, seats) {
+    this.name = name;
+    this.date = new Date(date);
+    this.seats = seats;
+  }
+
+  checkAvailability() {
+    return this.seats > 0 ? 'Seats available' : 'Sold out';
+  }
+}
+const event = new Event('Community Picnic', '2025-06-15', 50);
+console.log(Object.entries(event));
+[
+  ['name', 'Community Picnic'],
+  ['date', '2025-06-15T00:00:00.000Z'],
+  ['seats', 50]
+]
+6. Arrays and Methods
+Scenario: Manage an array of all community events.
+Objective: Use array methods for CRUD operations.
+Task:
+• Add new events using .push()
+• Use .filter() to show only music events
+• Use .map() to format display cards (e.g., "Workshop on Baking")
+// Initial array of events
+let events = [
+  { name: "Art Workshop", category: "Art", date: "2025-06-10" },
+  { name: "Music Concert", category: "Music", date: "2025-06-15" }
+];
+
+// 1. Add a new event using .push()
+events.push({ name: "Baking Class", category: "Cooking", date: "2025-06-20" });
+
+// 2. Filter events to show only those in the 'Music' category
+let musicEvents = events.filter(event => event.category === "Music");
+
+// 3. Format event display using .map()
+let eventCards = events.map(event => `${event.name} - ${event.category} on ${event.date}`);
+
+// Output the results
+console.log("All Events:");
+console.log(events);
+
+console.log("\nMusic Events:");
+console.log(musicEvents);
+
+console.log("\nEvent Cards:");
+console.log(eventCards);
+7. DOM Manipulation
+Scenario: Display all events dynamically on the webpage.
+Objective: Render events using JS.
+Task:
+• Access DOM elements using querySelector()
+• Create and append event cards using createElement()
+• Update UI when user registers or cancels
+// Sample array of event objects
+const events = [
+  { id: 1, name: "Art Workshop", category: "Art", date: "2025-06-10", seats: 10 },
+  { id: 2, name: "Music Concert", category: "Music", date: "2025-06-15", seats: 0 },
+  { id: 3, name: "Baking Class", category: "Cooking", date: "2025-06-20", seats: 5 }
+];
+
+// Access the container element
+const container = document.querySelector('#event-container');
+
+// Function to create and append event cards
+function renderEvents() {
+  // Clear existing content
+  container.innerHTML = '';
+
+  events.forEach(event => {
+    // Create card element
+    const card = document.createElement('div');
+    card.classList.add('event-card');
+
+    // Event details
+    const title = document.createElement('h3');
+    title.textContent = event.name;
+
+    const category = document.createElement('p');
+    category.textContent = `Category: ${event.category}`;
+
+    const date = document.createElement('p');
+    date.textContent = `Date: ${event.date}`;
+
+    const seats = document.createElement('p');
+    seats.textContent = `Available Seats: ${event.seats}`;
+
+    // Register button
+    const button = document.createElement('button');
+    button.textContent = event.seats > 0 ? 'Register' : 'Sold Out';
+    button.disabled = event.seats === 0;
+
+    // Event listener for registration
+    button.addEventListener('click', () => {
+      if (event.seats > 0) {
+        event.seats--;
+        renderEvents(); // Re-render to update UI
+      }
+    });
+
+    // Append elements to card
+    card.appendChild(title);
+    card.appendChild(category);
+    card.appendChild(date);
+    card.appendChild(seats);
+    card.appendChild(button);
+
+    // Append card to container
+    container.appendChild(card);
+  });
+}
+
+// Initial render
+renderEvents();
+8. Event Handling
+Scenario: Add interactive elements like buttons and filters.
+Objective: Respond to user actions.
+Task:
+• Use onclick for "Register" buttons
+• Use onchange to filter events by category
+• Use keydown to allow quick search by name
+<input type="text" id="searchInput" placeholder="Search events by name" />
+<select id="categoryFilter">
+  <option value="">All Categories</option>
+  <option value="Art">Art</option>
+  <option value="Music">Music</option>
+  <option value="Cooking">Cooking</option>
+</select>
+<div id="eventContainer"></div>
+9. Async JS, Promises, Async/Await
+Scenario: Fetch event data from a mock API.
+Objective: Use asynchronous logic for remote operations.
+Task:
+• Fetch events from a mock JSON endpoint
+• Use .then() and .catch() to handle results
+• Rewrite using async/await and show loading spinner
+const loader = document.getElementById('loader');
+const container = document.getElementById('eventContainer');
+
+function fetchEventsWithThen() {
+  loader.style.display = 'block'; // Show loader
+  fetch('https://jsonplaceholder.typicode.com/posts') // Mock API endpoint
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(events => {
+      renderEvents(events);
+    })
+    .catch(error => {
+      console.error('Fetch error:', error);
+      container.innerHTML = '<p>Error loading events.</p>';
+    })
+    .finally(() => {
+      loader.style.display = 'none'; // Hide loader
+    });
+}
+
+function renderEvents(events) {
+  container.innerHTML = ''; // Clear existing content
+  events.slice(0, 5).forEach(event => {
+    const card = document.createElement('div');
+    card.classList.add('event-card');
+    card.innerHTML = `
+      <h3>${event.title}</h3>
+      <p>${event.body}</p>
+    `;
+    container.appendChild(card);
+  });
+}
+
+// Call the function
+fetchEventsWithThen();
+10. Modern JavaScript Features
+Scenario: Refactor code to be concise and maintainable.
+Objective: Use ES6+ features.
+Task:
+• Use let, const, default parameters in functions
+• Use destructuring to extract event details
+• Use spread operator to clone event list before filtering
+// Sample array of event objects
+const events = [
+  { id: 1, name: "Art Workshop", category: "Art", date: "2025-06-10", seats: 10 },
+  { id: 2, name: "Music Concert", category: "Music", date: "2025-06-15", seats: 5 },
+  { id: 3, name: "Baking Class", category: "Cooking", date: "2025-06-20", seats: 8 }
+];
+
+// Function to render events
+const renderEvents = (eventList = []) => {
+  const container = document.querySelector('#eventContainer');
+  container.innerHTML = ''; // Clear existing content
+
+  eventList.forEach(({ id, name, category, date, seats }) => {
+    const card = document.createElement('div');
+    card.classList.add('event-card');
+
+    card.innerHTML = `
+      <h3>${name}</h3>
+      <p>Category: ${category}</p>
+      <p>Date: ${date}</p>
+      <p>Available Seats: ${seats}</p>
+      <button id="register-${id}" ${seats === 0 ? 'disabled' : ''}>
+        ${seats > 0 ? 'Register' : 'Sold Out'}
+      </button>
+    `;
+
+    container.appendChild(card);
+
+    // Add event listener for registration
+    const registerBtn = document.querySelector(`#register-${id}`);
+    registerBtn.addEventListener('click', () => registerUser(id));
+  });
+};
+
+// Function to register a user for an event
+const registerUser = (eventId) => {
+  const eventIndex = events.findIndex(event => event.id === eventId);
+  if (eventIndex !=
+11. Working with Forms
+Scenario: Create a registration form for event sign-up.
+Objective: Connect form inputs to JavaScript.
+Task:
+• Capture name, email, and selected event using form.elements
+• Prevent default form behavior using event.preventDefault()
+• Validate inputs and show errors inline
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('registrationForm');
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent form from submitting
+
+    // Clear previous error messages
+    clearErrors();
+
+    // Retrieve form values
+    const name = form.elements['name'].value.trim();
+    const email = form.elements['email'].value.trim();
+    const selectedEvent = form.elements['event'].value;
+
+    let isValid = true;
+
+    // Validate name
+    if (name === '') {
+      displayError('nameError', 'Name is required.');
+      isValid = false;
+    }
+
+    // Validate email
+    if (email === '') {
+      displayError('emailError', 'Email is required.');
+      isValid = false;
+    } else if (!validateEmail(email)) {
+      displayError('emailError', 'Please enter a valid email address.');
+      isValid = false;
+    }
+
+    // Validate event selection
+    if (selectedEvent === '') {
+      displayError('eventError', 'Please select an event.');
+      isValid = false;
+    }
+
+    if (isValid) {
+      // Proceed with form submission or further processing
+      alert('Registration successful!');
+      form.reset();
+    }
+  });
+
+  // Function to display error messages
+  function displayError(elementId, message) {
+    const errorElement = document.getElementById(elementId);
+    if (errorElement) {
+      errorElement.textContent = message;
+    }
+  }
+
+  // Function to clear all error messages
+  function clearErrors() {
+    const errorElements = document.querySelectorAll('.error');
+    errorElements.forEach((element) => {
+      element.textContent = '';
+    });
+  }
+
+  // Function to validate email format
+  function validateEmail(email) {
+    // Simple email regex for demonstration purposes
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  }
+});
+12. AJAX & Fetch API
+Scenario: Send user registration to the server.
+Objective: Simulate backend communication.
+Task:
+• Use fetch() to POST user data to a mock API
+• Show success/failure message after submission
+• Use setTimeout() to simulate a delayed response
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('registrationForm');
+  const messageDiv = document.getElementById('message');
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Clear previous messages
+    clearErrors();
+    messageDiv.textContent = '';
+
+    // Retrieve form values
+    const name = form.elements['name'].value.trim();
+    const email = form.elements['email'].value.trim();
+    const selectedEvent = form.elements['event'].value;
+
+    let isValid = true;
+
+    // Validate name
+    if (name === '') {
+      displayError('nameError', 'Name is required.');
+      isValid = false;
+    }
+
+    // Validate email
+    if (email === '') {
+      displayError('emailError', 'Email is required.');
+      isValid = false;
+    } else if (!validateEmail(email)) {
+      displayError('emailError', 'Please enter a valid email address.');
+      isValid = false;
+    }
+
+    // Validate event selection
+    if (selectedEvent === '') {
+      displayError('eventError', 'Please select an event.');
+      isValid = false;
+    }
+
+    if (isValid) {
+      // Simulate delayed response
+      messageDiv.textContent = 'Submitting registration...';
+      setTimeout(() => {
+        // Send POST request to mock API
+        fetch('https://jsonplaceholder.typicode.com/posts', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ name, email, event: selectedEvent })
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(data => {
+            messageDiv.textContent = 'Registration successful!';
+            form.reset();
+          })
+          .catch(error => {
+            console.error('Fetch error:', error);
+            messageDiv.textContent = 'Registration failed. Please try again.';
+          });
+      }, 2000); // 2-second delay
+    }
+  });
+
+  // Function to display error messages
+  function displayError(elementId, message) {
+    const errorElement = document.getElementById(elementId);
+    if (errorElement) {
+      errorElement.textContent = message;
+    }
+  }
+
+  // Function to clear all error messages
+  function clearErrors() {
+    const errorElements = document.querySelectorAll('.error');
+    errorElements.forEach((element) => {
+      element.textContent = '';
+    });
+  }
+
+  // Function to validate email format
+  function validateEmail(email) {
+    // Simple email regex for demonstration purposes
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  }
+});
+13. Debugging and Testing
+Scenario: Registration is failing silently. You need to debug.
+Objective: Use browser tools to inspect and fix issues.
+Task:
+• Use Chrome Dev Tools Console and Network tab
+• Add breakpoints and inspect variables
+• Log form submission steps and check fetch request payload
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
+  
+  // Retrieve form values
+  const name = form.elements['name'].value.trim();
+  const email = form.elements['email'].value.trim();
+  const selectedEvent = form.elements['event'].value;
+
+  // Log form values
+  console.log('Form Submission:', { name, email, selectedEvent });
+
+  // Proceed with validation and fetch request...
+});
+14. jQuery and JS Frameworks
+Scenario: Use jQuery to simplify DOM tasks.
+Objective: Understand and use jQuery.
+Task:
+• Use $('#registerBtn').click(...) to handle click events
+• Use .fadeIn() and .fadeOut() for event cards
+• Mention one benefit of moving to frameworks like React or Vue
+Task: DOM Manipulation with jQuery
+1. Handling Button Click with jQuery
+To manage button clicks using jQuery, you can use the following code:
+
+javascript
+Copy
+Edit
+$('#registerBtn').click(function() {
+  // Your code here
+});
+This snippet listens for a click event on the element with the ID registerBtn and executes the provided function when the event occurs.
+
+2. Implementing Fade Effects
+To create fade-in and fade-out effects for event cards, you can use:
+
+javascript
+Copy
+Edit
+$('#eventCard').fadeIn();  // Gradually shows the element
+$('#eventCard').fadeOut(); // Gradually hides the element
+These methods animate the opacity of the selected element, providing a smooth transition.
+
+Transitioning from jQuery to Modern Frameworks
+While jQuery simplifies DOM manipulation, modern JavaScript frameworks like React and Vue offer enhanced capabilities for building dynamic user interfaces.
+
+Key Benefits:
+Component-Based Architecture: Both React and Vue promote reusable components, making code more modular and maintainable.
+
+Declarative Syntax: These frameworks allow developers to describe the UI state declaratively, leading to more predictable and easier-to-manage code.
+
+Efficient DOM Updates: React and Vue utilize virtual DOMs to efficiently update the actual DOM, improving performance in dynamic applications.
+
+Enhanced State Management: They provide robust mechanisms for managing application state, which is crucial for complex applications.
+
+Considerations:
+Learning Curve: Transitioning to frameworks like React or Vue requires learning new concepts and tools, which might have an initial learning curve.
+
+Project Complexity: For simple projects, the overhead of introducing a framework might not be justified. However, for scalable and maintainable applications, frameworks offer significant advantages.
 
 
 Module 2 - ANSI SQL Using MySQL Exercises
