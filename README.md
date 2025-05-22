@@ -1689,7 +1689,7 @@ Look for your external CSS file (e.g., styles.css) in the list of network reques
 
 If the file is not listed, ensure that the <link> tag in your HTML file correctly references the CSS file's path.
 
-🧪 Testing Responsiveness in Visual Studio Code
+Testing Responsiveness in Visual Studio Code
 1. Use Live Server Extension
 Install the Live Server extension from the VS Code Marketplace.
 Ritwick Dey
@@ -1702,7 +1702,317 @@ As you make changes to your code, the browser will automatically refresh to refl
 
 2. Preview in Different Devices
 While your page is open in the browser, use the browser's developer tools to simulate different devices and screen sizes, as described in the Chrome DevTools section above
+Module 1-HTML 5
+HTML5 Exercises
+Project Theme: Local Community Event Portal
+A local city council wants a lightweight, browser-based portal to help residents register for
+events, check locations, and access basic services.
+1. Create the HTML5 Base Template
+Scenario: You’re setting up the base document that every page on the portal will use.
+Objective: Ensure semantic structure and compatibility across browsers.
+Task:
+• Use <!DOCTYPE html>, <html lang="en">, <meta charset="UTF-8">
+• Add comments to label sections like "Navigation", "Main", "Footer"
+• Save as index.html and open it in Chrome
+• Inspect the document structure in Chrome Dev Tools
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Community Event Portal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="home">
+    <section id="events">
+      <h2>Upcoming Events</h2>
+      <!-- Event details go here -->
+    </section>
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <!-- Contact form goes here -->
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Local Community Council</p>
+  </footer>
+
+</body>
+</html>
+
+
+2. Navigation and Linking
+Scenario: Users should navigate between "Home", "Events", and "Contact" sections.
+Objective: Provide intuitive navigation and section-based references.
+Task:
+• Use <nav> with anchor tags <a href="#events">Events</a>
+• Define matching IDs for each section like <section id="events">
+• Add a link to an external help document using <a href="help.html" target="_blank">
+<nav>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="help.html" target="_blank">Help</a></li>
+  </ul>
+</nav>
+
+3. Welcome Message with Styling and ID/Class
+Scenario: Display a welcome banner styled uniquely for a logged-in user.
+Objective: Practice block/inline tags and differentiate id and class
+Task:
+• Use <div id="welcomeBanner"> and apply a blue background via internal CSS
+• Use inline styles for a special offer <span> (e.g., color red, bold)
+• Apply the .highlight class to certain elements for visual emphasis
+<div id="welcomeBanner">
+  <h1>Welcome to the Local Community Event Portal</h1>
+  <p>Explore upcoming events and connect with your community.</p>
+</div>
+
+<p>Special Offer: <span class="highlight">Register now and get a free community guide!</span></p>
+4. Image Gallery for Community Events
+Scenario: Show images from past events in a table layout.
+Objective: Work with <img>, tables, and formatting tags.
+Task:
+• Use a <table> with 2 rows and 3 columns of <img> tags
+• Include alt, title, and style each image with borders using a class
+• Add a caption to describe each event
+<table>
+  <caption>Past Community Events</caption>
+  <tr>
+    <td><img src="event1.jpg" alt="Community Picnic" title="Community Picnic" class="event-img"></td>
+    <td><img src="event2.jpg" alt="Charity Run" title="Charity Run" class="event-img"></td>
+    <td><img src="event3.jpg" alt="Art Exhibition" title="Art Exhibition" class="event-img"></td>
+  </tr>
+  <tr>
+    <td><img src="event4.jpg" alt="Food Drive" title="Food Drive" class="event-img"></td>
+    <td><img src="event5.jpg" alt="Music Festival" title="Music Festival" class="event-img"></td>
+    <td><img src="event6.jpg" alt="Community Clean-up" title="Community Clean-up" class="event-img"></td>
+  </tr>
+</table>
+5. Event Registration Form
+Scenario: Residents need to register for events.
+Objective: Practice input types, validation, placeholder, autofocus, and output
+Task:
+• Include fields: name (text), email (email), date (date), event type (select), message
+(textarea)
+• Add placeholder, required, and autofocus
+• Display a confirmation message using <output> when the form is submitted
+• Style the form using CSS
+<form id="registrationForm">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" placeholder="Your Name" required autofocus><br><br>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" placeholder="Your Email" required><br><br>
+
+  <label for="eventType">Event Type:</label>
+  <select id="eventType" name="eventType">
+    <option value="workshop">Workshop</option>
+    <option value="seminar">Seminar</option>
+    <option value="webinar">Webinar</option>
+  </select><br><br>
+
+  <label for="message">Message:</label><br>
+  <textarea id="message" name="message" rows="4" cols="50" placeholder="Your Message"></textarea><br><br>
+
+  <input type="submit" value="Register">
+</form>
+
+<output id="confirmationMessage"></output>
+6. Event Feedback with Events Handling
+Scenario: Collect real-time feedback and interactions from the user.
+Objective: Handle blur, change, click, double-click, and keyboard events.
+Task:
+• Use onblur to validate a phone number field
+• Use onchange on a dropdown to display the selected event fee
+• onclick on a submit button to show a confirmation
+• ondblclick on an image to enlarge it
+• Capture key events in the feedback textarea and count characters
+<form id="feedbackForm">
+  <label for="phone">Phone Number:</label>
+  <input type="tel" id="phone" name="phone" onblur="validatePhone()"><br><br>
+
+  <label for="eventFee">Event Fee:</label>
+  <select id="eventFee" name="eventFee" onchange="displayFee()">
+    <option value="free">Free</option>
+    <option value="paid">Paid</option>
+  </select><br><br>
+
+  <label for="feedback">Feedback:</label><br>
+  <textarea id="feedback" name="feedback" rows="4" cols="50" oninput="countCharacters()"></textarea><br><br>
+
+  <input type="submit" value="Submit">
+</form>
+
+<p id="phoneValidation"></p>
+<p id="feeDisplay"></p>
+<p id="charCount">Characters: 0</p>
+7. Video Invite with Media Events
+Scenario: Show a short event promo video.
+Objective: Work with <video> and oncanplay event
+Task:
+• Insert a <video> element with source and controls
+• Use oncanplay to display a message like "Video ready to play"
+• Use onbeforeunload to warn users if they try to leave the form page unfinished
+<video id="promoVideo" width="320" height="240" controls oncanplay="videoReady()">
+  <source src="promo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<script>
+  function videoReady() {
+    alert("Video is ready to play!");
+  }
+</script>
+8. Saving User Preferences
+Scenario: Store preferred event type for returning users.
+Objective: Work with localStorage, sessionStorage, and deletion
+Task:
+• Save selected event type in localStorage
+• On reload, retrieve and pre-select it
+• Add a "Clear Preferences" button that clears both localStorage and sessionStorage
+<select id="eventType" onchange="savePreference()">
+  <option value="workshop">Workshop</option>
+  <option value="seminar">Seminar</option>
+  <option value="webinar">Webinar</option>
+</select>
+
+<button onclick="clearPreferences()">Clear Preferences</button>
+
+<script>
+  window.onload = function() {
+    const savedPreference = localStorage.getItem('preferredEventType');
+    if (savedPreference) {
+      document.getElementById('eventType').value = savedPreference;
+    }
+  };
+
+  function savePreference() {
+    const selectedEventType = document.getElementById('eventType').value;
+    localStorage.setItem('preferredEventType', selectedEventType);
+  }
+
+  function clearPreferences() {
+    localStorage.removeItem('preferredEventType');
+    sessionStorage.clear();
+    alert("Preferences cleared!");
+  }
+</script>
+9. Geolocation for Event Mapping
+Scenario: Locate the nearest event to the user.
+Objective: Practice geolocation.getCurrentPosition, error handling, and options
+Task:
+• Create a button “Find Nearby Events”
+• On click, use getCurrentPosition to get and display coordinates
+• Handle permission denial and timeouts
+• Use high accuracy options
+
+::contentReference[oaicite:138]{index=138}
+ 
+10.Debugging with Chrome DevTools
+Scenario: A few users report layout issues and script errors.
+Objective: Use Chrome DevTools and VS Code features to debug.
+Task:
+• Use “Inspect Element” to modify styles and experiment live
+• Use the Console tab to view logs from your <script>
+• Add breakpoints in JS and reload the page to watch variable values
+Debugging with Chrome DevTools
+1. Inspect and Modify Styles Live
+Open DevTools: Press Ctrl + Shift + I (Windows/Linux) or Cmd + Option + I (Mac).
+
+Navigate to the Elements Panel: Here, you can select any element on your page to view and edit its HTML and CSS.
+
+Edit Styles: In the Styles pane, modify CSS properties to see changes in real-time. This helps in adjusting margins, padding, colors, and more to fix layout issues.
+
+2. Monitor JavaScript Errors
+Access the Console Panel: Switch to the Console tab to view any JavaScript errors or warnings.
+
+Log Outputs: Use console.log() in your scripts to output variable values and track the flow of execution.
+
+Clear Console: Click the trash can icon to clear the console for fresh logs.
+DEV Community
+
+3. Set Breakpoints and Step Through Code
+Open the Sources Panel: Locate your JavaScript file in the file navigator.
+
+Add Breakpoints: Click on the line number where you want to pause execution.
+
+Control Execution: Use the buttons to step over, step into, or resume script execution.
+
+Inspect Variables: Check the Scope and Watch panels to view variable values and call stack.
+DEV Community
++1
+CoderPad
++1
+HappyFox
++3
+Buddy
++3
+DEV Community
++3
+
+🖥️ Debugging with Visual Studio Code
+1. Set Up Browser Debugging
+Install Chrome Debugger Extension: In VS Code, go to the Extensions view (Ctrl + Shift + X), search for "Debugger for Chrome," and install it.
+
+Configure Launch Settings: Create a launch.json file in the .vscode folder with the following configuration:
+Visual Studio Code
+
+json
+Copy
+Edit
+  {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "chrome",
+        "request": "launch",
+        "name": "Launch Chrome against localhost",
+        "url": "http://localhost:3000",
+        "webRoot": "${workspaceFolder}"
+      }
+    ]
+  }
+Replace "http://localhost:3000" with the URL of your local development server.
+
+2. Start Debugging
+Launch Debugger: Press F5 or click on the green play button in the Run and Debug panel.
+
+Set Breakpoints: Click on the gutter next to line numbers in your JavaScript files to set breakpoints.
+
+Inspect Variables: Use the Variables and Watch panels to monitor variable values during execution.
+
+Debug Console: View outputs and errors in the Debug Console.
+Visual Studio Code
++3
+Stack Overflow
++3
+Zapier
++3
+
+Practical Tips
+Reproduce the Issue: Consistently reproduce the bug to understand its behavior.
+
+Use Conditional Breakpoints: Right-click a breakpoint and select "Edit breakpoint" to add conditions, pausing execution only when specific criteria are met.
+
+Monitor Network Requests: Use the Network panel to view API calls and responses, ensuring data is fetched correctly.
+
+Check for Layout Shifts: Utilize the Performance panel to record and analyze layout shifts and rendering issues
 
 
 Module 2 - ANSI SQL Using MySQL Exercises
