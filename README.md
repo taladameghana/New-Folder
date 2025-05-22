@@ -1035,9 +1035,673 @@ $border-radius: 0.375rem; // Custom border radius
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/mixins";
 @import "../node_modules/bootstrap/scss/bootstrap";
+Module 1-CSS3 Exercises
+Theme: Styling the "Local Community Event Portal"
+1. Why CSS? Inline vs. Internal vs. External
+Scenario: The designer wants you to experiment with different ways to apply styles.
+Objective: Understand various CSS inclusion methods and their impact.
+Task:
+• Apply an inline style to make one heading red.
+• Use an embedded <style> tag in the <head> to define body background.
+• Link an external stylesheet styles.css and move all reusable styles there.
+• Add comments in your CSS to label each section (/* Header styles */)
+1. Inline CSS
+Usage: Applied directly within an HTML element using the style attribute.
+
+Scope: Affects only the specific element it's applied to.
+
+When to Use: Ideal for quick, one-off styling changes.
 
 
+2. Internal CSS
+Usage: Defined within a <style> tag in the <head> section of an HTML document.
 
+Scope: Affects all elements within the same HTML document.
+
+When to Use: Suitable for single-page documents or when styles are unique to that page.
+
+3. External CSS
+Usage: Stored in a separate .css file and linked to the HTML document using the <link> tag.
+
+Scope: Affects multiple HTML documents that link to the same CSS file.
+
+When to Use: Best for multi-page websites to maintain consistent styling across all pages.
+Practical Example
+HTML File (index.html)
+html
+Copy
+Edit
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Styling Methods</title>
+    <!-- Internal CSS -->
+    <style>
+        /* Body Background */
+        body {
+            background-color: #f0f0f0;
+        }
+    </style>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Inline CSS -->
+    <h1 style="color: red;">Welcome to CSS Styling</h1>
+    <p>This is a demonstration of different CSS methods.</p>
+</body>
+</html>
+External CSS File (styles.css)
+css
+Copy
+Edit
+/* Header Styles */
+h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 2em;
+    text-align: center;
+}
+
+/* Paragraph Styles */
+p {
+    font-family: 'Verdana', sans-serif;
+    font-size: 1.2em;
+    color: #333;
+}
+2. CSS Syntax and Comments
+Scenario: You’ve joined a team and need to understand and maintain a large stylesheet.
+Objective: Write clean, readable CSS with proper structure and comments.
+Task:
+• Create a section in styles.css with formatted rules and consistent indentation.
+• Add descriptive comments above selectors.
+• Example:
+/* Style for main CTA button */
+.cta-button {
+ background-color: #007BFF;
+ color: white;
+}
+/* ========================================================================
+   Header Styles
+   ======================================================================== */
+
+/* Style for main navigation bar */
+#navbar {
+  background-color: #333; /* Dark background for contrast */
+  padding: 10px 20px;      /* Adequate padding for spacing */
+  text-align: center;      /* Center-align text */
+}
+
+/* Style for navigation links */
+#navbar a {
+  color: white;            /* White text color */
+  padding: 14px 20px;      /* Padding for clickable area */
+  text-decoration: none;   /* Remove underline */
+  display: inline-block;   /* Align links horizontally */
+}
+
+#navbar a:hover {
+  background-color: #ddd;  /* Light background on hover */
+  color: black;            /* Dark text on hover */
+}
+
+/* ========================================================================
+   Main Content Styles
+   ======================================================================== */
+
+/* Style for main content area */
+.main-content {
+  margin: 20px auto;       /* Center-align with margin */
+  max-width: 1200px;       /* Maximum width for readability */
+  padding: 20px;           /* Padding inside content */
+}
+
+/* Style for article sections */
+.main-content article {
+  margin-bottom: 30px;     /* Space between articles */
+  border-bottom: 1px solid #ccc; /* Light border for separation */
+  padding-bottom: 20px;    /* Padding inside article */
+}
+
+/* ========================================================================
+   Footer Styles
+   ======================================================================== */
+
+/* Style for footer */
+footer {
+  background-color: #333; /* Dark background to match header */
+  color: white;           /* White text color */
+  text-align: center;     /* Center-align text */
+  padding: 10px 0;        /* Padding for spacing */
+  position: fixed;        /* Fixed at bottom */
+  bottom: 0;              /* Align at bottom */
+  width: 100%;            /* Full width */
+}
+
+3. Selectors Playground
+Scenario: You need to style various elements based on IDs, classes, and element types.
+Objective: Master different selector types.
+Task:
+• Use:
+o Universal selector * to reset margin/padding
+o Element selector to style all <h2>
+o ID selector #mainHeader for the banner
+o Class selector .eventCard for event containers
+o Grouping selector for h3, p to style together
+/* Reset margin and padding for all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensures padding and borders are included in element's total width and height */
+}
+/* Style for all <h2> elements */
+h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+/* Style for the element with id="mainHeader" */
+#mainHeader {
+  background-color: #007BFF;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+/* Style for all elements with class="eventCard" */
+.eventCard {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+}
+/* Style for <h3> and <p> elements */
+h3, p {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #555;
+}
+/* ========================================================================
+   Global Reset
+   ======================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========================================================================
+   Header Styles
+   ======================================================================== */
+#mainHeader {
+  background-color: #007BFF;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* ========================================================================
+   Event Card Styles
+   ======================================================================== */
+.eventCard {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+}
+
+/* ========================================================================
+   Typography Styles
+   ======================================================================== */
+h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+h3, p {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #555;
+}
+
+4. Color & Background Styling
+Scenario: You’re theming the portal based on a city council’s branding.
+Objective: Apply consistent colors and background visuals.
+Task:
+• Use HEX and RGBA for setting text and background colors
+• Add a background image to the body with fallback color
+• Apply gradients to section headers using background: linear-gradient(...)
+/* HEX color for text */
+h1 {
+  color: #2c3e50; /* Dark slate gray */
+}
+
+/* RGBA color for semi-transparent background */
+section {
+  background-color: rgba(46, 204, 113, 0.7); /* Semi-transparent green */
+}
+/* Body background with image and fallback color */
+body {
+  background-color: #ecf0f1; /* Light gray fallback */
+  background-image: url('cityscape.jpg');
+  background-size: cover;
+  background-position: center;
+}
+/* Section header with linear gradient */
+section header {
+  background: linear-gradient(to right, #3498db, #8e44ad); /* Blue to purple */
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+5. Typography: Fonts and Text
+Scenario: The marketing team wants more appealing fonts and better readability.
+Objective: Enhance textual appearance using CSS properties.
+Task:
+• Use @import or <link> to include a Google Font
+• Set font-family, font-size, font-style, font-weight in different sections
+• Use text-align, text-transform, letter-spacing, line-height on descriptions
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+/* Body text */
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Main header */
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Subheader */
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Paragraph */
+p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: normal;
+}
+/* Paragraph styling */
+p {
+  text-align: justify;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+}
+<html>
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <style>
+    /* Body text */
+    body {
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    /* Main header */
+    h1 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    /* Subheader */
+    h2 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      font-style: italic;
+    }
+
+    /* Paragraph */
+    p {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      font-style: normal;
+      text-align: justify;
+      text-transform: capitalize;
+      letter-spacing: 0.5px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to the City Council Portal</h1>
+  <h2>Upcoming Events</h2>
+  <p>Join us for the annual city cleanup event this Saturday. Volunteers are welcome to participate and make a difference in our community.</p>
+</body>
+</html>
+
+6. Link and List Styling
+Scenario: The default blue links and bullet lists don’t match the design.
+Objective: Customize links and lists.
+Task:
+• Style links with :link, :hover, :active, and :visited pseudo-classes
+• Use list-style-type, list-style-position, and remove bullets from nav menus
+• Add padding and margin to list items for spacing
+/* Default state for unvisited links */
+a:link {
+  color: #0056b3; /* Blue */
+  text-decoration: none;
+  font-weight: normal;
+}
+
+/* Visited links */
+a:visited {
+  color: #800080; /* Purple */
+}
+
+/* On hover */
+a:hover {
+  color: #ff6347; /* Tomato */
+  text-decoration: underline;
+}
+
+/* When active (clicked) */
+a:active {
+  color: #ff4500; /* OrangeRed */
+}
+/* Remove bullets and reset margin/padding */
+ul {
+  list-style-type: none;
+  list-style-position: outside;
+  margin: 0;
+  padding: 0;
+}
+
+/* Add spacing between list items */
+ul li {
+  margin-bottom: 10px;
+  padding-left: 20px; /* Optional: Adds indentation */
+  position: relative;
+}
+
+/* Optional: Custom bullet using ::before pseudo-element */
+ul li::before {
+  content: '•';
+  color: #007bff; /* Blue */
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+/* Remove default list styling */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Style individual list items */
+nav ul li {
+  margin: 0 15px;
+  padding: 10px 20px;
+}
+
+/* Style links within the navigation */
+nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Hover effect for links */
+nav ul li a:hover {
+  color: #ffd700; /* Gold */
+}
+
+7. Table Styling
+Scenario: The events admin table needs a cleaner look.
+Objective: Format tables using CSS.
+Task:
+• Style table, th, and td with borders, padding, and background color
+• Add zebra striping to rows using nth-child(even)
+• Use border-collapse: collapse and text-align: center
+table, th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+  border-collapse: collapse;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+th {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+}
+td:first-child, th:first-child {
+  background-color: #e7f7e7;
+}
+
+td:last-child, th:last-child {
+  background-color: #e7f7e7;
+}
+
+8. Box Model & Layout Control
+Scenario: Sections are cramped and need spacing.
+Objective: Control element spacing with margin, padding, border, and outline.
+Task:
+• Use developer tools to inspect and tweak box model properties
+• Add border, padding, and margin to .eventCard
+• Add outline to highlight selected fields in a form
+• Compare visibility: hidden vs. display: none
+/* Global Box Model Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+  padding: 20px;
+}
+
+/* Section Styling */
+section {
+  margin-bottom: 40px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: white;
+}
+
+/* Event Card Styling */
+.eventCard {
+  margin: 20px 0;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Field Focus Outline */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 3px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Visibility vs. Display */
+.hidden-element {
+  visibility: hidden; /* Element is invisible but still occupies space */
+}
+
+.removed-element {
+  display: none; /* Element is removed from the layout */
+}
+
+9. Multiple Columns in Text
+Scenario: The community bulletin needs to be displayed like a newspaper.
+Objective: Use CSS3 multi-column layout.
+Task:
+• Create a news article section and apply:
+column-count: 2;
+column-gap: 30px;
+column-rule: 1px solid gray;
+/* News Article Section */
+.news-article {
+  column-count: 2;               /* Divide content into 2 columns */
+  column-gap: 30px;              /* Set 30px gap between columns */
+  column-rule: 1px solid gray;   /* Add a 1px solid gray line between columns */
+  padding: 20px;                 /* Add padding inside the section */
+  background-color: #fff;        /* Set background color to white */
+  border-radius: 8px;            /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  font-family: 'Georgia', serif; /* Use serif font for a newspaper feel */
+  line-height: 1.6;              /* Improve readability */
+}
+
+10. Responsive Web Design with Media Queries
+Scenario: Users will access the portal on phones, tablets, and desktops.
+Objective: Apply media queries for responsiveness.
+Task:
+• Add a media query for screens smaller than 768px
+• Stack navigation links vertically instead of horizontally
+• Reduce image sizes and font sizes
+• Use %, vw, vh for flexible layouts
+• Bonus: Try Flexbox or Grid for responsive layouts
+@media only screen and (max-width: 768px) {
+  /* Styles for mobile and tablet devices */
+}
+@media only screen and (max-width: 768px) {
+  nav ul {
+    display: block;
+    text-align: center;
+  }
+
+  nav ul li {
+    display: block;
+    margin: 10px 0;
+  }
+}
+@media only screen and (max-width: 768px) {
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  body {
+    font-size: 14px;
+  }
+}
+.container {
+  width: 100%;
+  padding: 5%;
+}
+
+.header {
+  height: 10vh;
+}
+@media only screen and (max-width: 768px) {
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .flex-item {
+    width: 90%;
+    margin: 10px 0;
+  }
+}
+
+11. Debug and Test with Dev Tools and VS Code
+Scenario: Some users report layout breaking on smaller screens.
+Objective: Use DevTools to test styles and debug.
+Task:
+• Use Chrome’s device toolbar to simulate different screen sizes
+• Inspect applied styles and test different values live
+• Use the Network tab to check if the external CSS is loaded
+🛠️ Debugging with Chrome DevTools
+1. Simulate Different Screen Sizes
+Open Chrome DevTools by pressing Ctrl + Shift + I (Windows/Linux) or Cmd + Option + I (Mac).
+
+Click the Toggle Device Toolbar button or press Ctrl + Shift + M (Windows/Linux) or Cmd + Shift + M (Mac) to enter device emulation mode.
+DevTools Tips
++1
+Tutkit.com
++1
+
+Use the Dimensions drop-down to select a specific device or enter custom width and height values. 
+Chrome for Developers
++1
+DebugBear
++1
+
+To view media query breakpoints, click the More options (three dots) in the device toolbar and select Show media queries. 
+Chrome for Developers
++1
+DebugBear
++1
+
+2. Inspect Applied Styles
+In the Elements panel, select the element you want to inspect.
+Chrome for Developers
+
+In the Styles pane, review the applied CSS rules.
+
+To test different values live, modify the CSS properties directly in the Styles pane.
+
+3. Check if External CSS is Loaded
+Go to the Network tab in DevTools.
+web.dev
++1
+Google Help
++1
+
+Reload the page.
+
+Look for your external CSS file (e.g., styles.css) in the list of network requests.
+
+If the file is not listed, ensure that the <link> tag in your HTML file correctly references the CSS file's path.
+
+🧪 Testing Responsiveness in Visual Studio Code
+1. Use Live Server Extension
+Install the Live Server extension from the VS Code Marketplace.
+Ritwick Dey
+
+Right-click on your index.html file and select Open with Live Server.
+
+This will launch a local development server and open your webpage in the browser.
+
+As you make changes to your code, the browser will automatically refresh to reflect the updates.
+
+2. Preview in Different Devices
+While your page is open in the browser, use the browser's developer tools to simulate different devices and screen sizes, as described in the Chrome DevTools section above
 
 
 
